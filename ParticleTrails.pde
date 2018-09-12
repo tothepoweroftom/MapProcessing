@@ -9,7 +9,7 @@ class ParticleTrails {
 
   void addParticle(PVector start, PVector end) {
     if (this.particles.size() < 1000) {
-      append(this.particles, new Particle(start, end));
+      this.particles.add(new Particle(start, end));
     }
   }
 
@@ -22,14 +22,13 @@ class ParticleTrails {
   }
 
   void move() {
-    print(particles.size());
     if (this.particles.size() > 0) {
       for (int i = 0; i<particles.size(); i++) {
         Particle p = this.particles.get(i);
         p.run();
         if (p.landed()) {
-          append(this.landedParticles, p);
-          shorten(this.landedParticles);
+          this.landedParticles.add(p);
+          this.landedParticles.remove(this.landedParticles.size()-1);
         }
       }
     }

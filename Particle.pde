@@ -47,7 +47,7 @@ class Particle {
   
   void display() {
     strokeWeight(1);
-    stroke(255,100);
+    stroke(0,200);
     
     line(this.destination.x, this.destination.y, this.origin.x, this.origin.y);
     
